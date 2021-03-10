@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "An ecommerce store with MERN",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malik-Idrees/proShop.git"
+  },
+  "author": "idrees",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Malik-Idrees/proShop/issues"
+  },
+  "homepage": "https://github.com/Malik-Idrees/proShop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
