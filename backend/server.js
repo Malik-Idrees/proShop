@@ -3,7 +3,6 @@ const dotenv = require('dotenv')
 const connectDB = require('./config/db.js')
 const middleware = require('./middleware/errorMiddleware')
 const { notFound, errorHandler } = middleware
-console.log(middleware)
 const colors = require('colors')
 
 const productRoutes = require('./routes/productRoutes')
