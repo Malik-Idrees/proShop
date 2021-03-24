@@ -55,19 +55,16 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 
       const config = {
          headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${userInfo.token}`,
          },
       }
 
-      const { data } = await axios.post(`/api/orders/${id}`, config)
-
+      const { data } = await axios.get(`/api/orders/${id}`, config)
       dispatch({
          type: ORDER_DETAILS_SUCCESS,
          payload: data,
       })
    } catch (error) {
-      console.log('error in orderCreate')
       dispatch({
          type: ORDER_DETAILS_FAIL,
          payload:
