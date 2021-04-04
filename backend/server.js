@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const connectDB = require('./config/db.js')
 const middleware = require('./middleware/errorMiddleware')
 const { notFound, errorHandler } = middleware
+const morgan = require('morgan')
 const colors = require('colors')
 
 const productRoutes = require('./routes/productRoutes')
@@ -13,6 +14,9 @@ dotenv.config()
 connectDB()
 
 const app = express()
+if (process.env.NODE_ENV === 'development') {
+   app.use(morgan('dev'))
+}
 app.use(express.json())
 
 app.use('/api/products', productRoutes)
