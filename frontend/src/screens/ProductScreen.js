@@ -164,7 +164,7 @@ const ProductScreen = ({ match, history }) => {
                </Row>
                <Row>
                   <Col md={6}>
-                     <h2>Reviews</h2>
+                     <h3 className='mt-3 bold'>Reviews</h3>
                      {product.reviews.length === 0 && (
                         <Message>No Reviews</Message>
                      )}
@@ -183,7 +183,7 @@ const ProductScreen = ({ match, history }) => {
                            </ListGroup.Item>
                         ))}
                         <ListGroup.Item>
-                           <h2>Write a Customer Review</h2>
+                           <h3 className='bold'>Write a Customer Review</h3>
                            {errorProductReview && (
                               <Message variant='danger'>
                                  {errorProductReview}
