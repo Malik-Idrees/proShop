@@ -1,7 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import SearchBox from './SearchBox'
 
 import { logout } from '../actions/userActions'
 
@@ -22,6 +24,9 @@ const Header = () => {
                   ProShop
                </Navbar.Brand>
                <Navbar.Toggle aria-controls='basic-navbar-nav' />
+               <Route
+                  render={({ history }) => <SearchBox history={history} />}
+               />
                <Navbar.Collapse id='basic-navbar-nav'>
                   <Nav className='ml-auto'>
                      <Nav.Link as={Link} to='/cart'>
