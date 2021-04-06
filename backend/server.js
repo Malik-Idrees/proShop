@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv')
 const connectDB = require('./config/db.js')
@@ -27,13 +28,24 @@ app.get('/api/config/paypal', (req, res) =>
    res.send(process.env.PAYPAL_CLIENT_ID)
 )
 
+const __currentDirectory = path.resolve()
+
+
+if(process.env.NODE_ENV === 'production'){
+   app.use(express.static(path.join(__currentDirectory,'/frontend/build')))
+
+   app.get('*',(req,res) =>
+   res.sendFile(path.resolve(__currentDirectory,'frontend','build','index.html'))
+   )
+} else {
+   app.get('/', (req, res) => {
+      res.send('API is running...')
+   })
+}
+
 //Middlewares
 app.use(notFound)
 app.use(errorHandler)
-
-app.get('/', (req, res) => {
-   res.send('API is running...')
-})
 
 const PORT = process.env.PORT || 5000
 app.listen(
